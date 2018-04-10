@@ -13,6 +13,8 @@ var h=document.body.clientHeight;
 canvas.width=w;
 canvas.height=h;
 var cxt=canvas.getContext("2d");
+cxt.lineJoin='round';
+cxt.lineCap='round';
 var text=document.querySelector(".text")
 var num=0
 var pos={
@@ -129,7 +131,7 @@ function animate(){
 			var food=foods[i]
 			foodArc(food)
 			if(collision(snakeHead,food)){
-				
+//				snakeBody.color=food.color;
 				snakeBodys.push(snakeBody);
 				food.set();
 				num++;
@@ -152,6 +154,7 @@ function drawSnake(obj){
 	cxt.fill()
 }
 function touchstart(e){
+	e.preventDefault()
 	var e=e.touches[0];
 	pos={
 		x:parseInt(e.pageX),
@@ -159,6 +162,7 @@ function touchstart(e){
 	}
 }
 function touchmove(e){
+	e.preventDefault()
 	var e=e.touches[0];
 	posEnd={
 		x:parseInt(e.pageX),
