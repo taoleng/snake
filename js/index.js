@@ -8,8 +8,8 @@
 
 
 var canvas=document.getElementById("canvas");
-var w=window.screen.width;
-var h=window.screen.height;
+var w=document.body.clientWidth;
+var h=document.body.clientHeight;
 canvas.width=w;
 canvas.height=h;
 var cxt=canvas.getContext("2d");
